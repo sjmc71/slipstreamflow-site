@@ -29,8 +29,11 @@
       letter-spacing: 0.05em;
     }
     @keyframes colorPulse {
-      0%, 100% { color: #005f66; }
-      50% { color: #33b7a4; }
+  0%, 100% { color: #005f66; } /* deep ocean teal */
+  25% { color: #33b7a4; }     /* bright teal */
+  50% { color: #4fc3f7; }     /* soft aqua blue for a luminous pop */
+  75% { color: #33b7a4; }     /* returning through bright teal */
+}
     }
     .logo::after {
       content: "";
@@ -47,7 +50,7 @@
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-4px); }
     }
     @keyframes slide {
       0% { transform: translateX(0); opacity: 0.7; }
