@@ -21,12 +21,13 @@
       position: relative;
     }
     .logo {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: 700;
       color: #005f66;
       animation: float 4s ease-in-out infinite, colorPulse 7s ease-in-out infinite;
       position: relative;
       letter-spacing: 0.05em;
+      text-align: center;
     }
     .logo::after {
       content: "";
@@ -35,22 +36,11 @@
       height: 4px;
       background: linear-gradient(to right, #005f66, transparent);
       position: absolute;
-      bottom: -4px;
+      bottom: -6px;
       left: 0;
       border-radius: 3px;
       opacity: 0.7;
       animation: slide 4s ease-in-out infinite;
-    }
-    .tagline {
-      font-size: 1.3rem;
-      color: #00796b;
-      opacity: 0;
-      animation: fadeIn 4s 2s forwards;
-      margin-top: 10px;
-    }
-    @keyframes colorPulse {
-      0%, 100% { color: #005f66; }
-      50% { color: #44c6a0; }
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
@@ -61,21 +51,22 @@
       50% { transform: translateX(25px); opacity: 0.4; }
       100% { transform: translateX(0); opacity: 0.7; }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    @keyframes colorPulse {
+      0%, 100% { color: #005f66; }
+      50% { color: #44c6a0; }
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin-bottom: 40px;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: color 0.3s, transform 0.3s;
     }
     nav a:hover {
@@ -109,27 +100,29 @@
       0% { background-position: 0 0, 100% 100%; }
       100% { background-position: 100% 0, 0 100%; }
     }
-    #contact .invitation {
-      font-size: 1.1rem;
-      font-style: italic;
-      margin-bottom: 20px;
-      color: #004d40;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: linear-gradient(to right, #e0f7fa, #b2ebf2);
-      opacity: 0.9;
-      font-size: 0.9rem;
-      color: #004d40;
-    }
-    footer a {
-      color: #005f66;
-      margin: 0 10px;
+    #signal a {
+      color: #4fc3f7;
       text-decoration: none;
     }
-    footer a:hover {
+    #signal a:hover {
       text-decoration: underline;
+    }
+    .audio-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+      background: rgba(0, 95, 102, 0.8);
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50px;
+      color: white;
+      font-size: 1.2rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .audio-control:hover {
+      background: rgba(0, 95, 102, 1);
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -137,7 +130,6 @@
   <div class="flow-background"></div>
   <header>
     <div class="logo">slipstreamflow</div>
-    <div class="tagline">The current is calling.</div>
     <nav>
       <a href="#about">About</a>
       <a href="#stream">Stream</a>
@@ -174,7 +166,6 @@
   </section>
   <section id="contact">
     <h2>Send a Signal</h2>
-    <p class="invitation">All signals matter. Share yours. The current listens.</p>
     <form action="https://formspree.io/f/mjkyrbyl" method="POST">
       <input type="text" name="name" placeholder="Your Name" required style="width:80%; padding:10px; margin-bottom:10px;"><br>
       <input type="email" name="email" placeholder="Your Email" required style="width:80%; padding:10px; margin-bottom:10px;"><br>
@@ -183,9 +174,28 @@
     </form>
     <p style="font-size:0.9rem; color:#777; margin-top:20px;">We listen. The current responds.</p>
   </section>
-  <footer>
-    <p>Slipstreamflow — where inevitability and intelligence meet.<br>
-    <a href="https://medium.com/@spencermcgurk" target="_blank">Medium</a> | <a href="#stream">Signal Archive (coming soon)</a> | <a href="#about">About the Project</a></p>
-  </footer>
+
+  <audio id="background-audio" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5478484c7e.mp3?filename=gentle-pulse-ambient-11057.mp3" type="audio/mpeg">
+  </audio>
+  <button class="audio-control" onclick="toggleAudio()">▶︎</button>
+
+  <script>
+    const audio = document.getElementById('background-audio');
+    const controlBtn = document.querySelector('.audio-control');
+    let isPlaying = false;
+
+    function toggleAudio() {
+      if (isPlaying) {
+        audio.pause();
+        controlBtn.textContent = '▶︎';
+      } else {
+        audio.volume = 0.2;
+        audio.play();
+        controlBtn.textContent = '❚❚';
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 </html>
