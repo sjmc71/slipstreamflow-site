@@ -11,34 +11,39 @@
       font-family: 'Sora', sans-serif;
       background: linear-gradient(135deg, #e0f7fa, #ffffff);
       overflow-x: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     header {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      padding: 2rem 0;
+      height: 100vh;
       flex-direction: column;
       position: relative;
+      text-align: center;
     }
     .logo {
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 8vw, 4rem);
       font-weight: 700;
       color: #005f66;
       animation: float 4s ease-in-out infinite, colorPulse 7s ease-in-out infinite;
-      position: relative;
       letter-spacing: 0.05em;
+      position: relative;
     }
     .logo::after {
       content: "";
       display: block;
       width: 100%;
-      height: 4px;
+      height: 3px;
       background: linear-gradient(to right, #005f66, transparent);
       position: absolute;
-      bottom: -2px;
+      bottom: -6px;
       left: 0;
-      border-radius: 3px;
+      border-radius: 2px;
       opacity: 0.7;
       animation: slide 4s ease-in-out infinite;
     }
@@ -52,13 +57,13 @@
     }
     @keyframes slide {
       0% { transform: translateX(0); opacity: 0.7; }
-      50% { transform: translateX(25px); opacity: 0.4; }
+      50% { transform: translateX(20px); opacity: 0.4; }
       100% { transform: translateX(0); opacity: 0.7; }
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 30px;
       margin-bottom: 40px;
       flex-wrap: wrap;
     }
@@ -66,24 +71,12 @@
       text-decoration: none;
       color: #004d40;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 4vw, 1.2rem);
       transition: color 0.3s, transform 0.3s;
     }
     nav a:hover {
       color: #005f66;
       transform: scale(1.1);
-    }
-    section {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlideIn 1.2s ease-in-out forwards;
-      text-align: center;
-      padding: 60px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-    @keyframes fadeSlideIn {
-      to { opacity: 1; transform: translateY(0); }
     }
     .flow-background {
       position: absolute;
@@ -100,12 +93,31 @@
       0% { background-position: 0 0, 100% 100%; }
       100% { background-position: 100% 0, 0 100%; }
     }
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1.2s ease-in-out forwards;
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    @keyframes fadeSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
     #signal a {
       color: #4fc3f7;
       text-decoration: none;
     }
     #signal a:hover {
       text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -157,5 +169,8 @@
     </form>
     <p style="font-size:0.9rem; color:#777; margin-top:20px;">We listen. The current responds.</p>
   </section>
+  <footer>
+    &copy; 2025 slipstreamflow | Clarity in Motion
+  </footer>
 </body>
 </html>
