@@ -11,15 +11,13 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
-
 .arrival-text {
   max-width: 600px;
   text-align: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
 }
-
 .arrival-text p {
   opacity: 0;
   margin: 1em 0;
@@ -27,11 +25,9 @@
   line-height: 1.8rem;
   transition: opacity 1s ease-in-out;
 }
-
 .arrival-text p.show {
   opacity: 1;
 }
-
 #enter-site {
   margin-top: 2em;
   padding: 0.75em 2em;
@@ -40,9 +36,12 @@
   color: #f5f5f5;
   cursor: pointer;
   font-size: 1rem;
-  transition: background 0.3s;
+  opacity: 0;
+  transition: opacity 1s, background 0.3s;
 }
-
+#enter-site.show {
+  opacity: 1;
+}
 #enter-site:hover {
   background: #f5f5f5;
   color: #0a0a0a;
