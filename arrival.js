@@ -7,9 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (index < lines.length) {
       lines[index].classList.add("show");
       index++;
-      setTimeout(showLine, 1200);
+      setTimeout(showLine, 400);  // faster pacing
     } else {
-      // After all lines show, reveal the button
       enterButton.classList.add("show");
     }
   }
@@ -23,9 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   });
 
-  // Safety fallback: show button if something glitches
+  // Safety fallback if something stalls
   setTimeout(() => {
     enterButton.classList.add("show");
-  }, 20000);
+  }, 15000); // fallback at 15 seconds max
 });
-
