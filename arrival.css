@@ -1,0 +1,49 @@
+
+#arrival-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.arrival-text {
+  max-width: 600px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.arrival-text p {
+  opacity: 0;
+  margin: 1em 0;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  transition: opacity 1s ease-in-out;
+}
+
+.arrival-text p.show {
+  opacity: 1;
+}
+
+#enter-site {
+  margin-top: 2em;
+  padding: 0.75em 2em;
+  background: transparent;
+  border: 1px solid #f5f5f5;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+#enter-site:hover {
+  background: #f5f5f5;
+  color: #0a0a0a;
+}
