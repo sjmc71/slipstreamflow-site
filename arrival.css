@@ -6,16 +6,16 @@
   height: 100%;
   background: #0a0a0a;
   color: #f5f5f5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto; /* allows scrolling on mobile if content is long */
   z-index: 9999;
   opacity: 1;
   transition: opacity 1s ease-in-out;
+  padding: 40px 20px;
 }
 
 .arrival-text {
   max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 
