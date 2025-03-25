@@ -1,15 +1,15 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const lines = document.querySelectorAll(".arrival-text p");
   const enterButton = document.getElementById("enter-site");
   let index = 0;
 
   function showLine() {
-    if (index < lines.length - 1) { // Don't include the button in this loop
+    if (index < lines.length) {
       lines[index].classList.add("show");
       index++;
       setTimeout(showLine, 1200);
     } else {
+      // After all lines show, reveal the button
       enterButton.classList.add("show");
     }
   }
@@ -23,8 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   });
 
-  // Fallback safety net
+  // Safety fallback: show button if something glitches
   setTimeout(() => {
     enterButton.classList.add("show");
   }, 20000);
 });
+
