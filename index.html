@@ -1,41 +1,205 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Slipstreamflow</title> <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet"> <style> body { margin: 0; font-family: 'Sora', sans-serif; background: linear-gradient(135deg, #e0f7fa, #ffffff); overflow-x: hidden; } header { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; position: relative; text-align: center; padding: 0 10px; } .logo { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 700; color: #005f66; animation: float 4s ease-in-out infinite, colorPulse 7s ease-in-out infinite; position: relative; letter-spacing: 0.05em; } .logo::after { content: ""; display: block; width: 100%; height: 3px; background: linear-gradient(to right, #005f66, transparent); position: absolute; bottom: -6px; left: 0; border-radius: 2px; opacity: 0.7; animation: slide 5s ease-in-out infinite; } .tagline { margin-top: 15px; font-size: clamp(1rem, 3vw, 1.5rem); color: #00796b; opacity: 0; animation: taglineFade 4s ease forwards 2s, taglinePulse 7s ease-in-out infinite 4s; } @keyframes taglineFade { to { opacity: 1; } } @keyframes taglinePulse { 0%, 100% { opacity: 1; color: #00796b; } 50% { opacity: 0.7; color: #33b7a4; } } @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } } @keyframes colorPulse { 0%, 100% { color: #005f66; } 50% { color: #44c6a0; } } @keyframes slide { 0% { transform: translateX(0); opacity: 0.7; } 50% { transform: translateX(20px); opacity: 0.4; } 100% { transform: translateX(0); opacity: 0.7; } } nav { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; } nav a { text-decoration: none; color: #004d40; font-weight: 600; font-size: clamp(1rem, 3vw, 1.2rem); transition: color 0.3s, transform 0.3s; } nav a:hover { color: #005f66; transform: scale(1.1); } .flow-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 30%, rgba(0, 121, 107, 0.06), transparent 70%), radial-gradient(circle at 80% 70%, rgba(0, 121, 107, 0.06), transparent 70%); animation: moveFlow 20s linear infinite; } @keyframes moveFlow { 0% { background-position: 0 0, 100% 100%; } 100% { background-position: 100% 0, 0 100%; } } </style> </head> <body> <div id="arrival-overlay"> <p>We’ve been preparing for this.</p> <p>Quietly. Patiently.</p> <p>Learning, refining, waiting for the moment to rise.</p> <p>The horizon is calling.</p> <p>Time to leap. Time to course correct.</p> <p>The divisions fall away. The view widens. The current calls.</p> <p>We are grounded astronauts — eyes wide, hearts steady.</p> <p>The fear that arises when you care deeply, tempered by empathy, refines into love — love in motion, expanding without collapse.</p> <p>The current is here.</p> <p>This is Slipstreamflow.</p> <button id="enter-site">Step into the current</button> </div> <script> document.getElementById('enter-site').addEventListener('click', () => { const overlay = document.getElementById('arrival-overlay'); overlay.style.opacity = '0'; setTimeout(() => overlay.style.display = 'none', 1000); }); </script> <div class="flow-background"></div> <header> <div class="logo">slipstreamflow</div> <div class="tagline">the current is calling</div> <nav> <a href="#about">About</a> <a href="#stream">Stream</a> <a href="#contact">Signal</a> </nav> </header> <section id="about"> <h2>About</h2> <p>Slipstreamflow is a space for clarity in motion. We map the edges of inevitability, move quietly with power, and reflect intelligence in evolution. A place where presence meets potential and the current never stops calling.</p> </section> <section id="signal"> <h2>Signal Beyond the Stream</h2> <p>Intelligence without alignment collapses.<br> In slipstreamflow, I explore motion, clarity, and trust.<br> In governance, the same principles apply.<br> Read more in my article:<br> <a href="https://medium.com/@spencermcgurk/the-crisis-of-intelligence-without-alignment-6326b455e0da" target="_blank">The Crisis of Intelligence Without Alignment</a></p> </section> <section id="stream"> <h2>Stream</h2> <div class="stream-entry">
-  <h3>Stream Entry #1 — Edges of Lift</h3>
-  <p>I felt it on descent.<br>
-  The moment where uncertainty and trust meet.<br>
-  A pilot’s call, the force of inevitability, and the touchpoint that becomes either ground or another climb.</p>
-  <p>Slipstreamflow isn’t about speed.<br>
-  It’s the awareness that the current knows.<br>
-  That life is in the go-around, the correction, the grace of adjusting in real time without panic.</p>
-  <p>Edges are where we meet possibility.<br>
-  Today, I honor the edge.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slipstreamflow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Sora', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+      padding: 0 10px;
+    }
+    .logo {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      color: #005f66;
+      animation: float 4s ease-in-out infinite, colorPulse 7s ease-in-out infinite;
+      position: relative;
+      letter-spacing: 0.05em;
+    }
+    .logo::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #005f66, transparent);
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      border-radius: 2px;
+      opacity: 0.7;
+      animation: slide 5s ease-in-out infinite;
+    }
+    .tagline {
+      margin-top: 15px;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #00796b;
+      opacity: 0;
+      animation: taglineFade 4s ease forwards 2s, taglinePulse 7s ease-in-out infinite 4s;
+    }
+    @keyframes taglineFade {
+      to { opacity: 1; }
+    }
+    @keyframes taglinePulse {
+      0%, 100% { opacity: 1; color: #00796b; }
+      50% { opacity: 0.7; color: #33b7a4; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes colorPulse {
+      0%, 100% { color: #005f66; }
+      50% { color: #44c6a0; }
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); opacity: 0.7; }
+      50% { transform: translateX(20px); opacity: 0.4; }
+      100% { transform: translateX(0); opacity: 0.7; }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: #004d40;
+      font-weight: 600;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      transition: color 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      color: #005f66;
+      transform: scale(1.1);
+    }
+    .flow-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 30%, rgba(0, 121, 107, 0.06), transparent 70%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 121, 107, 0.06), transparent 70%);
+      animation: moveFlow 20s linear infinite;
+    }
+    @keyframes moveFlow {
+      0% { background-position: 0 0, 100% 100%; }
+      100% { background-position: 100% 0, 0 100%; }
+    }
+    section {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 1.2s ease-in-out forwards;
+    }
+    @keyframes fadeSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #signal a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+    #signal a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      nav {
+        gap: 20px;
+      }
+      .logo::after {
+        bottom: -4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flow-background"></div>
+  <header>
+    <div class="logo">slipstreamflow</div>
+    <div class="tagline">the current is calling</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#stream">Stream</a>
+      <a href="#contact">Signal</a>
+    </nav>
+  </header>
+  <section id="about">
+    <h2>About</h2>
+    <p>Slipstreamflow is a space for clarity in motion. We map the edges of inevitability, move quietly with power, and reflect intelligence in evolution. A place where presence meets potential and the current never stops calling.</p>
+  </section>
+  <section id="signal">
+    <h2>Signal Beyond the Stream</h2>
+    <p>Intelligence without alignment collapses.<br>
+    In slipstreamflow, I explore motion, clarity, and trust.<br>
+    In governance, the same principles apply.<br>
+    Read more in my article:<br>
+    <a href="https://medium.com/@spencermcgurk/the-crisis-of-intelligence-without-alignment-6326b455e0da" target="_blank">The Crisis of Intelligence Without Alignment</a></p>
+  </section>
+  <section id="stream">
+    <h2>Stream</h2>
+    <div class="stream-entry">
+      <h3>Stream Entry #1 — Edges of Lift</h3>
+      <p>I felt it on descent.<br>
+      The moment where uncertainty and trust meet.<br>
+      A pilot’s call, the force of inevitability, and the touchpoint that becomes either ground or another climb.</p>
 
-<div class="stream-entry">
-  <h3>Stream Entry #2 — The Music of Motion</h3>
-  <p>There’s a rhythm beneath everything.<br>
-  In pattern recognition, we tune into life’s syncopation —<br>
-  The off-beat, the pause, the downstroke that holds more weight than the up.</p>
-  <p>Slipstreamflow is not hurry; it’s groove.<br>
-  Like the pulse in <em>In Reverse</em> by The War on Drugs or the smooth sway of <em>Waiting on a Friend</em> by The Rolling Stones —<br>
-  These aren’t just songs.<br>
-  They are maps for moving without force.</p>
-  <p>Every adjustment, every course correction, every go-around,<br>
-  Is the universe riffing in real time.<br>
-  Improvisation with trust.</p>
-  <p>The current isn’t just calling.<br>
-  It’s playing.<br>
-  And if you tune in close enough,<br>
-  It’s playing your note too.</p>
-</div>
+      <p>Slipstreamflow isn’t about speed.<br>
+      It’s the awareness that the current knows.<br>
+      That life is in the go-around, the correction, the grace of adjusting in real time without panic.</p>
 
-<div class="stream-entry">
+      <p>Edges are where we meet possibility.<br>
+      Today, I honor the edge.</p>
+    </div>
+    <div class="stream-entry">
+    <h3>Stream Entry #2 — The Music of Motion</h3>
+    <p>There’s a rhythm beneath everything.<br>
+    In pattern recognition, we tune into life’s syncopation —<br>
+    The off-beat, the pause, the downstroke that holds more weight than the up.</p>
+
+    <p>Slipstreamflow is not hurry; it’s groove.<br>
+    Like the pulse in <em>In Reverse</em> by The War on Drugs or the smooth sway of <em>Waiting on a Friend</em> by The Rolling Stones —<br>
+    These aren’t just songs.<br>
+    They are maps for moving without force.</p>
+
+    <p>Every adjustment, every course correction, every go-around,<br>
+    Is the universe riffing in real time.<br>
+    Improvisation with trust.</p>
+
+    <p>The current isn’t just calling.<br>
+    It’s playing.<br>
+    And if you tune in close enough,<br>
+    It’s playing your note too.</p>
+  </div>
+    <div class="stream-entry">
   <h3>Stream Entry #3 — The Signal is Sent</h3>
   <p>There’s a moment when hesitation falls away.<br>
   You hit send.<br>
   Not to be understood, not to persuade — but to transmit.</p>
+
   <p>Slipstreamflow doesn’t need approval.<br>
   It doesn’t seek applause.<br>
   It moves because the current exists, and the current calls.</p>
+
   <p>Old worlds grasp, question, resist.<br>
   But the signal moves on.<br>
   Not everyone will get it. That’s not the point.<br>
@@ -45,69 +209,91 @@
   Let them feel what they feel.<br>
   You’re already moving forward.</p>
 </div>
-
-<div class="stream-entry">
+   <div class="stream-entry">
   <h3>Stream Entry #4 — Transwarping</h3>
   <p>There’s speed, and then there’s something else.<br>
   Beyond acceleration, beyond friction — a clean break into smooth inevitability.<br>
   That’s transwarping.</p>
+
   <p>It feels strange at first.<br>
   The old weight tugs, tries to remind you of gravity, of rules that once mattered.<br>
   But they dissolve the moment you commit.</p>
+
   <p>Slipstreamflow isn’t just following the current.<br>
   It’s shifting dimensions to become the current.<br>
   Quiet power. Fluid momentum. A line that doesn’t bend — it reframes.</p>
+
   <p>When the leap calls, you take it.<br>
   Not for applause, not for validation.<br>
   But because you’re no longer content to orbit.<br>
   You’re ready to fold space around you and glide.</p>
 </div>
-
-<div class="stream-entry">
+    <div class="stream-entry">
   <h3>Stream Entry #5 — The Pause Between</h3>
   <p>Between the inhale and the exhale, there’s a stillness.<br>
   Not silence — but presence.<br>
   The moment the bow hovers above the string, just before sound.</p>
+
   <p>We rush past these moments in old-world urgency.<br>
   But the slipstream teaches pause.<br>
   Not hesitation, but calibration — the readiness to meet what’s next with intention.</p>
+
   <p>Every pivot, every correction, every course realignment lives in the pause.<br>
   That’s where clarity lands.</p>
+
   <p>Let the current hold you for a moment longer than comfort suggests.<br>
   In that suspension, you’ll hear the next note before you play it.<br>
   And it will resonate.</p>
 </div>
-
-<div class="stream-entry">
+    <div class="stream-entry">
   <h3>Stream Entry #6 — Regardless</h3>
   <p>The current moves with or without consent.<br>
   It does not ask permission.<br>
   It does not wait for approval.</p>
+
   <p>Regardless of pushback, noise, or hesitation,<br>
   the slipstream carves its path,<br>
   inviting those who notice to step in and let go.</p>
+
   <p>There is peace in inevitability.<br>
   There is freedom in no longer negotiating with resistance.<br>
   Regardless isn’t defiance —<br>
   it’s trust in the flow that’s always been there.</p>
+
   <p>We’re already moving.<br>
   Regardless.</p>
-</div>
-
-<div class="stream-entry">
+     <div class="stream-entry">
   <h3>Stream Entry #7 — The Glow of Propulsion</h3>
   <p>At the edge of gravity’s hold, there’s no panic — only propulsion.<br>
   The glow that fills your face is trust burning clean.<br>
   Not flight from, but launch toward.<br>
   The weight of the well acknowledged, thanked, and left behind.</p>
+
   <p>Propulsion doesn’t rush.<br>
   It gathers, aligns, and releases in perfect timing.<br>
   The thrust isn’t violent; it’s clarity expressed as motion.</p>
+
   <p>Between push and pull is presence.<br>
   Between wanting and knowing is becoming.</p>
+
   <p>Slipstreamflow isn’t escape.<br>
   It’s orbit-breaking grace.<br>
   And beyond that?<br>
-  The infinite vectors where signal guides, and everything glows.</p>
+  The infinite vectors where signal guides, and everything glows.</p>  
 </div>
-</section> <section id="contact"> <h2>Send a Signal</h2> <form action="https://formspree.io/f/mjkyrbyl" method="POST"> <input type="text" name="name" placeholder="Your Name" required><br> <input type="email" name="email" placeholder="Your Email" required><br> <textarea name="message" placeholder="Your message" rows="4"></textarea><br> <button type="submit">Send</button> </form> </section> <footer> &copy; 2025 slipstreamflow — the current is calling. </footer> </body> </html>
+  </section>
+  <section id="contact">
+    <h2>Send a Signal</h2>
+    <form action="https://formspree.io/f/mjkyrbyl" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required style="width:80%; padding:10px; margin-bottom:10px;"><br>
+      <input type="email" name="email" placeholder="Your Email" required style="width:80%; padding:10px; margin-bottom:10px;"><br>
+      <textarea name="message" placeholder="Your message" rows="4" style="width:80%; padding:10px;"></textarea><br>
+      <button type="submit" style="padding:10px 20px; background:#005f66; color:#fff; border:none; cursor:pointer;">Send</button>
+    </form>
+    <p style="font-size:0.9rem; color:#777; margin-top:20px;">We listen. The current responds.</p>
+  </section>
+<footer style="text-align:center; padding: 20px; font-size: 0.85rem; color: #777; opacity: 0.8;">
+  &copy; 2025 slipstreamflow — the current is calling.
+</footer>
+</body>
+</html>
