@@ -23,11 +23,12 @@
   height: 100%;
   background: url('https://i.postimg.cc/8z96BTLj/earthrise.jpg') no-repeat right center;
   background-size: cover;
-  opacity: 0.12;
+  opacity: 0.25; /* Increase for visibility */
   pointer-events: none;
-  mix-blend-mode: lighten;
-  filter: blur(1px); /* Optional subtle softness */
+  mix-blend-mode: screen; /* Screen blends nicely without overpowering */
+  filter: blur(0.5px); /* Slight softness without losing detail */
 }
+
 
 #moon-earth-image::after {
   content: "";
