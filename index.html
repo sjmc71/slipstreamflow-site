@@ -246,10 +246,10 @@
 
   <script>
     document.getElementById('enter-site').addEventListener('click', () => {
-      const overlay = document.getElementById('arrival-overlay');
-      overlay.style.opacity = '0';
-      setTimeout(() => overlay.style.display = 'none', 1000);
-    });
+  const overlay = document.getElementById('arrival-overlay');
+  overlay.classList.add('fade-out');
+  setTimeout(() => overlay.style.display = 'none', 800);
+});
   </script>
 
 <body>
