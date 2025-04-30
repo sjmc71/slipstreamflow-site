@@ -1,81 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Slipstreamflow</title>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --light-bg: #f0f4f8;
+      --light-text: #1e1e1e;
+      --light-link: #0077b6;
+      --dark-bg: #0e1111;
+      --dark-text: #e0f7fa;
+      --dark-link: #80deea;
+    }
+
     body {
       margin: 0;
-      padding: 60px 20px 20px 20px;
+      padding: 60px 20px 40px 20px;
       font-family: 'Sora', sans-serif;
       background: url('https://i.postimg.cc/8z96BTLj/earthrise.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #f5f5f5;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
       text-align: center;
-      backdrop-filter: brightness(0.6);
       box-sizing: border-box;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      backdrop-filter: brightness(0.5) blur(3px);
+    }
+
+    body.light-mode {
+      background: var(--light-bg);
+      color: var(--light-text);
+      backdrop-filter: none;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      animation: fadeIn 1s ease-in;
     }
 
     p {
-      font-size: 1.2rem;
-      line-height: 1.6rem;
-      margin: 0.5rem 0;
+      font-size: 1.25rem;
+      line-height: 1.8rem;
+      margin: 1rem 0;
+      max-width: 600px;
+      animation: fadeIn 1.5s ease-in;
     }
 
     a {
-      color: #4fc3f7;
+      color: var(--dark-link);
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    body.light-mode a {
+      color: var(--light-link);
     }
 
     a:hover {
-      text-decoration: underline;
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    }
+
+    body.light-mode a:hover {
+      color: #005f73;
+      text-shadow: none;
     }
 
     .link-group {
-      margin-top: 2rem;
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: fadeIn 2s ease-in;
     }
 
     #archive {
       display: none;
+      margin-top: 1rem;
     }
 
     #toggle-archive {
       cursor: pointer;
       font-style: italic;
-      color: #b3e5fc;
+      color: #b2ebf2;
+      margin-top: 1.5rem;
+    }
+
+    body.light-mode #toggle-archive {
+      color: #0077b6;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #b2ebf2;
+      color: #e0f7fa;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    body.light-mode .toggle-theme {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1e1e1e;
+      border-color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
       body {
         padding-top: 100px;
-        backdrop-filter: brightness(0.5);
       }
 
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       p {
-        font-size: 1rem;
-        line-height: 1.4rem;
+        font-size: 1.1rem;
+        line-height: 1.6rem;
+      }
+
+      .toggle-theme {
+        padding: 6px 12px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
+  <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
   <main>
     <h1>Slipstreamflow</h1>
     <p>The current is here. Quiet power. Clear resonance.</p>
@@ -84,6 +156,7 @@
       <p>→ <a href="https://medium.com/@spencermcgurk/for-the-ones-still-holding-the-tower-6d666be2637e" target="_blank">For the Ones Still Holding the Tower</a></p>
       <p>→ <a href="https://medium.com/@spencermcgurk/the-silence-beneath-silicon-57e3791baf8b" target="_blank">The Silence Beneath Silicon</a></p>
       <p>→ <a href="https://medium.com/@spencermcgurk/speaker-for-the-system-c7f951a0360b" target="_blank">Speaker for the System</a></p>
+      <p>→ <a href="https://medium.com/@spencermcgurk/agi-let-it-flow-6bf2bdcd8a8b" target="_blank">AGI: Let It Flow</a></p>
 
       <div id="archive">
         <p>→ <a href="https://medium.com/@spencermcgurk/the-crisis-of-intelligence-without-alignment-6326b455e0da" target="_blank">The Crisis of Intelligence Without Alignment</a></p>
@@ -97,12 +170,17 @@
   <script>
     const toggleLink = document.getElementById('toggle-archive');
     const archive = document.getElementById('archive');
+    const body = document.body;
 
     toggleLink.addEventListener('click', () => {
       const isOpen = archive.style.display === 'block';
       archive.style.display = isOpen ? 'none' : 'block';
       toggleLink.textContent = isOpen ? '+ View All' : '− Show Less';
     });
+
+    function toggleTheme() {
+      body.classList.toggle('light-mode');
+    }
   </script>
 </body>
 </html>
